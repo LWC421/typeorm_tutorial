@@ -1,9 +1,8 @@
 .env
 env_files/*
 db_data
-
-
-
+.env
+docker-compose.yml
 
 # compiled output
 /dist
