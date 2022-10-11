@@ -13,6 +13,7 @@ import * as cookieParser from 'cookie-parser';
 import { HttpApiExceptionFilter } from './common/exceptions/http-api-exception.filter';
 import * as expressSession from 'express-session';
 
+//Application을 구동함에 있어 필요한 것을 정의
 class Application {
   private logger = new Logger(Application.name);
   private DEV_MODE: boolean;
@@ -53,7 +54,7 @@ class Application {
       SwaggerModule.createDocument(
         this.server,
         new DocumentBuilder()
-          .setTitle('Yoon Sang Seok - API')
+          .setTitle('LWC - API')
           .setDescription('TypeORM In Nest')
           .setVersion('0.0.1')
           .build(),
