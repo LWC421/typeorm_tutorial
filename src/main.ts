@@ -11,6 +11,7 @@ import * as expressBasicAuth from 'express-basic-auth';
 import * as passport from 'passport';
 import * as cookieParser from 'cookie-parser';
 import { HttpApiExceptionFilter } from './common/exceptions/http-api-exception.filter';
+import * as expressSession from 'express-session';
 
 class Application {
   private logger = new Logger(Application.name);
@@ -61,6 +62,13 @@ class Application {
   }
 
   private async setUpGlobalMiddleware() {
+    this.server.use(
+      expressSession({
+        secret: 'SECRET',
+        resave: true,
+        saveUninitialized: true,
+      }),
+    );
     this.server.enableCors({
       origin: this.corsOriginList,
       credentials: true,
