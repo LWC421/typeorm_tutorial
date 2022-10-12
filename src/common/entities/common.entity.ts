@@ -8,6 +8,7 @@ import { IsUUID } from 'class-validator';
 import { Exclude } from 'class-transformer';
 
 export abstract class CommonEntity {
+  //AutoIncrement와 비슷한 역할을 한다
   @IsUUID()
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -20,6 +21,7 @@ export abstract class CommonEntity {
   })
   createdAt: Date;
 
+  //업데이트 된 시각
   @UpdateDateColumn({ type: 'timestamptz' })
   updatedAt: Date;
 

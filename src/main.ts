@@ -85,6 +85,7 @@ class Application {
     this.server.use(passport.initialize());
     this.server.use(passport.session());
     this.server.useGlobalInterceptors(
+      // Exclude가 붙은 entity들은 빼서 return 해준다
       new ClassSerializerInterceptor(this.server.get(Reflector)),
     );
     this.server.useGlobalFilters(new HttpApiExceptionFilter());
